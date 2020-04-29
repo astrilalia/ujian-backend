@@ -151,9 +151,9 @@ app.post('/add-inventory', (req, res) => {
 
 app.get('/get-inventory', (req, res) => {
     let sql = `select nama as "Product", branch_name as "Branch Name", inventory as "Stock"
-from inventory i
-join product p on i.id_product = p.product_id
-join store s on i.id_store = s.store_id;`;
+    from inventory i
+    join product p on i.id_product = p.product_id
+    join store s on i.id_store = s.store_id;`;
     db.query(sql, (err, results) => {
         if(err)res.status(500).send(err.message)
         res.status(200).send(results)
